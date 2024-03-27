@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang= "en">
+    <head>
+        <meta charset="UTF-8">
+        <title>profile</title>
+    
+    <style>
+
+        h1 {
+            text-align: center;
+        }
+
+        
+        .progression {
+            width: 100%;
+            background-color: #f1f1f1;
+        }
+
+
+        .bar {
+            width: 0%;
+            height: 30px;
+            background-color: #4caf50;
+            text-align: center;
+            line-height: 30px;
+            color: white;
+        }
+
+        .Popup {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+
+        .popupcontent {
+            background-color: #fefefe;
+            margin: 15% auto; /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+        }
+
+        /* Modal button styles */
+        .popupbutton {
+            background-color: #f44336; /* Red */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .popupbutton:hover {
+            background-color: #d32f2f; /* Darker red */
+        }
+
+      
+        
+        
+        </style>
+    </head>
+
+    <body>
+        <h1>Build User Profile</h1>
+
+        <div class= "progression">
+            <div class= "bar" id= "progressbar">0%</div>
+        </div>
+        <br>
+
+       
+        <button onclick= "startProfile()">Start</button>
+         <br><br>
+         
+        Full Name: <b id="name"></b>
+        <br>
+        Age: <b id="age"></b>
+        <br>
+        Gender: <b id="gender"></b>
+        <br>
+        Privacy: <b id="privacy"></b>
+        <br><br>
+        
+
+        
+        
+        
+        <button onclick="nextProfile()">Next</button>
+        <br><br>
+
+        Rational: <b id="rational"></b>
+        <br>
+        DoA: <b id= "DoA"></b>
+        <br>
+        Task: <b id="task"></b>
+        <br>
+        Place: <b id="place"></b>
+        <br>
+        Assignment type: <b id="Assignment"></b>
+        <br><br>
+   
+
+
+      
+            <button onclick="nexProfile()">Next</button>
+        <br><br>
+        
+        Area of study: <b id="area"></b>
+        <br>
+        Highest degree: <b id="degree"></b>
+        <br>
+        University Institution: <b id="uni"></b>
+        <br>
+        Completion Year: <b id="year"></b>
+        <br>
+        Country: <b id="country"></b>
+        <br><br>
+        
+
+        
+      
+            <button onclick="ntProfile()">Next</button>
+        <br><br>
+        Availability Hours: <b id= "availability"></b>
+        <br>
+        Telephone Number: <b id="tel"></b>
+        <br>
+        Email: <b id="email"></b>
+        <br><br>
+       
+
+        
+        <button onclick="submitProfile()">Submit</button>
+        </div>
+
+        <div id="popup" class="Popup">
+
+            <!-- Modal content -->
+            <div class="popupcontent">
+              <p>Are you sure you want to continue?</p>
+              <button class="popupbutton" onclick="continueProcess()">Yes</button>
+              <button class="popupbutton" onclick="closePopup()">No</button>
+            </div>
+        
+        
+
+</body>
+
+<script>
+
+            const steps= ["Start", "Next", "Continue", "Submit"];
+            let size= steps.length 
+            let presentstep= 0;
+
+            
+
+            function startProfile() {
+                if (presentstep < steps.length) {
+                    presentstep++;
+                    updateProgress();
+                }
+                
+                let name= prompt ("STEP 1: Personal Details | Question 1/4- Please enter your full name:") ||"";
+                document.getElementById("name").innerHTML= name;
+
+                let age= prompt ("STEP 1: Personal Details | Question 2/4- Please enter your age:") ||"";
+                document.getElementById("age").innerHTML= age;
+
+                let gender= prompt ("STEP 1: Personal Details | Question 3/4- What is your gender?") ||"";
+                document.getElementById("gender").innerHTML= gender;
+
+                let privacy= prompt ("STEP 1: Personal Details | Question 4/4- Do you agree with our privacy terms?") ||"";
+                document.getElementById("privacy").innerHTML= privacy;
+
+                alert ("Well done! You have completed the first step! You have completed 25% of the profile!");
+
+        } 
+
+
+        function nextProfile () {
+
+            if (presentstep < steps.length) {
+                presentstep++;
+                updateProgress();
+            }
+
+            let rational= prompt("STEP 2: Volunteering tasks | Question 1/5- What brings you to our cause?") || "";
+            document.getElementById("rational").innerHTML= rational;
+
+        let DoA= prompt ("STEP 2: Volunteering tasks | Question 2/5- How would you like to work (Face-to-face, Hybrid or Online)?")|| "";
+        document.getElementById("DoA").innerHTML= DoA;
+
+        let task= prompt ("STEP 2: Volunteering tasks | Question 3/5- What would you like to partake in?")|| "";
+        document.getElementById("task").innerHTML= task;
+
+        let place= prompt ("STEP 2: Volunteering tasks | Question 4/5- Where do you want to volunteer?")|| "";
+        document.getElementById("place").innerHTML= place;
+
+
+        let assignment= prompt ("STEP 2: Volunteering tasks | Question 5/5- What assignment type do you want?")|| "";
+        document.getElementById("Assignment").innerHTML= assignment; 
+    
+        }
+
+        
+        function nexProfile () {
+            if (presentstep < steps.length) {
+                presentstep++;
+                updateProgress();
+            }
+
+           
+            
+
+            let area= prompt ("STEP 3: Qualifications | Question 1/5- What is your main field of study?") || "";
+            document.getElementById("area").innerHTML= area;
+
+            let degree= prompt ("STEP 3: Qualifications | Question 2/5- What is your highest degree?") || "";
+            document.getElementById("degree").innerHTML= degree;
+
+            let university= prompt ("STEP 3: Qualifications | Question 3/5- What university did you study at?") || "";
+            document.getElementById("uni").innerHTML= university;
+
+            let completion= prompt ("STEP 3: Qualifications | Question 4/5- What year did you finish university?") || "";
+            document.getElementById("year").innerHTML= completion
+
+            let country= prompt ("STEP 3: Qualifications | Question 5/5- What country are you based in?") || "";
+            document.getElementById("country").innerHTML= country;
+        
+        }
+
+
+        function ntProfile () {
+            if (presentstep < steps.length) {
+                presentstep++;
+                updateProgress();
+            }
+
+            let availability= prompt("STEP 4: Availability and Contact | Question 1/3- How many hours minimum per week are you able to volunteer for?")||"";
+            document.getElementById("availability").innerHTML= availability;
+
+            let telephone= prompt("STEP 4: Availability and Contact | Question 2/3- What is your telephone number?") ||"";
+            document.getElementById("tel").innerHTML= telephone;
+
+            let email= prompt("STEP 4: Availability and Contact | Question 3/3- What is your email?")||"";
+            document.getElementById("email").innerHTML= email;
+  
+        }
+
+        
+        
+let modal = document.getElementById("popup");
+
+// Function to open the modal
+function submitProfile () {
+    modal.style.display= "block";
+}
+
+// Function to close the modal
+function closePopup () {
+    modal.style.display= "none";
+}
+
+window.onclick= function(event) {
+    if (event.target==modal) {
+        modal.style.display="none";
+    }
+}
+
+// Function to continue the action
+function continueProcess () {
+    alert("Your profile has been completed! Welcome to the team!");
+    closePopup ();
+    // Add your action here
+}
+
+
+            function updateProgress() {
+            let bar= document.getElementById("progressbar");
+            let progress= (presentstep / steps.length) * 100;
+            bar.style.width = progress + "%";
+            bar.innerHTML = Math.round(progress) + "%";
+        
+        }
+
+        
+            /* Best one so far */
+        </script>
+        
+
+        </html>
