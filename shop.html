@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <title>Store</title>
+
+        <link rel="stylesheet" href="style.css">
+
+        <style>
+            body {font-family: Arial, Helvetica, sans-serif;
+            background-color: mediumseagreen;
+            }
+
+            h1 {
+                font-family: Arial, Helvetica, sans-serif;
+                color: black;
+                text-align: center;
+                font-size: 40px;
+                margin: 40px 20px 80px 20px;
+            }
+
+            .product {background-color: white;
+                    margin: 10px 10px 0 0;
+                    width: 234px;
+                float: left;
+                border-radius: 20px;
+                box-shadow:0 30px 50px darkgreen;
+            }
+
+            
+
+
+            img {
+                width: 235px;
+                height: 235px;
+                border-radius: 20px;
+               
+            }
+
+          
+            .description {
+                text-align: center;
+                font-size: 20px;
+                font-weight: bold;
+                color: #333;
+                padding-top: 20px;
+                height: 120px;
+                position: relative;
+            }
+
+
+            .price {
+                color: rgb(204,51,255);
+                position: absolute;
+                bottom: 20px;
+                width: 234px;
+
+            }
+        
+        
+        .container {
+            width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+
+        .labelOrder {
+            margin: -75px 10px 0 0;
+            padding-top: 12px;
+            width: 258px;
+            height: 460px;
+            background-color: #ccc;
+            float: left;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+
+
+        #order {
+            height: 376px;
+            float: none;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+       
+        
+        #orderDescription {
+            font-size: 16px;
+            height: 40px;
+        }
+
+
+        form {
+            clear: both;
+            padding: 20px;
+            background-color: #ccc;
+            position: relative;
+            top: 20px;
+            width: 950px;
+
+        }
+
+
+        input[type=button], input [type=reset] {
+            float: right;
+            margin-right: 10px;
+        }
+
+        #Checkout {
+            float: right;
+        }
+
+        </style>
+    </head>
+
+    <body>
+
+         <!--Web logo and nav bar-->
+         <header>
+            <div class="logo">
+               
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="https://w1899624.users.ecs.westminster.ac.uk/JKAYQ/home.html">Home</a></li>
+                    <li><a href="https://w1960394.users.ecs.westminster.ac.uk/JKAYQ/profile.html">Profile</a></li>
+                    <li><a href="shop.html" class="active">Shop</a></li>
+                    <li><a href="https://w1899624.users.ecs.westminster.ac.uk/JKAYQ/feedback.html">Feedback</a></li>
+                    <li><a href="https://w1960394.users.ecs.westminster.ac.uk/JKAYQ/team.html">Team</a></li>
+                </ul>
+            </nav>
+        </header>
+
+
+
+        <div class="container">
+        <h1>Store</h1>
+
+        <div class="product" id="product1">
+            <img src="Images/tshirt1.jpeg" alt="Quality Education T-Shirt" id="tshirt1">
+             <div class="description">Quality Education T-Shirt
+             <div class="price">£25</div>
+             </div>
+         </div>
+
+        <div class="product" id="product2">
+            <img src="Images/tshirt2.jpeg" alt="Sustainable Development Goals T-Shirt" id="tshirt2">
+        <div class="description">Sustainable Development Goals T-Shirt
+        <div class="price">£20</div>
+        </div>
+    </div>
+
+        <div class="product" id="product3">
+            <img src="Images/tshirt3.jpeg" alt="World T-Shirt" id="tshirt3">
+        <div class="description">Earth T-Shirt
+        <div class="price">£30</div>
+        </div>
+        </div>
+
+
+    <div class="labelOrder">Your Order:
+        <div id="orderDescription"></div>
+        <div class="product" id="order"></div>
+    </div>
+
+
+    <br><br>
+
+    <form onreset="resetOrder();">
+    <label for="buyingOptions">Choose colour:</label>
+    <select name="buyingOptions" id="buyingOptions" onchange="CheckOptions(this.form)">
+        <option value="pleaseSelect">Please Select</option>
+        <option value="white1" selected="">White</option>
+        <option value="pink1">Pink</option>
+        <option value="red1">Red</option>
+    </select>
+
+    <fieldset> 
+    <legend>T-Shirt:</legend> 
+    <input type="radio" name="colour" value="white" id="white" onchange="displayOption(this.value)">
+    <label for="white">Quality Education T-Shirt</label>
+   
+
+
+    <input type="radio" name="colour" value="pink" id="pink" onchange="displayOption(this.value)">
+    <label for="pink">Goals T-Shirt</label>
+
+
+    <input type="radio" name="colour" value="red" id="red" onchange="displayOption(this.value)">
+    <label for="red">Earth T-Shirt</label>
+
+    <input type="checkbox" id="Checkout">
+    <input type="button" id="button" value="Checkout" onclick="check()">
+    <input type="reset" value="reset">
+
+    </fieldset>
+
+    <fieldset>
+        
+		<legend>Contact Details:</legend>
+		<label for="name"><b>Name:</b></label><br>
+		<input type="text" name="name" id="name" required="">
+        <input type="Submit" value="Submit"><br>
+		<label for="email"><b>Email:</b></label><br>
+		<input type="email" name="email" id="email" required="">
+        <input type="Submit" value="Submit"><br>
+		
+       
+
+	</fieldset>
+  	
+</form>
+
+</div>
+
+
+
+<script>
+
+ 
+var checkboxTrue = "Your order is being placed!";
+var checkboxFalse = "Please click on the checkbox to place your order!";
+
+function check() { 
+
+    if(document.getElementById('Checkout').checked) {
+        alert(checkboxTrue);
+}
+    else {
+        alert(checkboxFalse);
+}
+}
+    
+    
+    function getRadioValue (radioArray) {
+        for (let i=0; i<radioArray.length; i++) {
+            if (radioArray[i].checked) {
+                return radioArray[i].value;
+            }
+        }
+
+        return "";
+    }
+
+    function getSelectedValue ( selectList ) {
+        return selectList [selectList.selectedIndex].value;
+    }
+
+    function getSelectedText (selectList) {
+        return selectList.options [selectList.selectedIndex].text;
+    }
+
+   
+
+    function CheckOptions (form) {
+        let orderOption= getSelectedValue (form.buyingOptions);
+        let chosenoptiondisplayOption= getRadioValue (form.colour);
+
+        let tshirt1 = document.getElementById("tshirt1");
+        let tshirt2= document.getElementById ("tshirt2");
+        let tshirt3 = document.getElementById ("tshirt3");
+
+
+        if (orderOption.indexOf("White") !=-1){
+            if (tshirt1.src != "Images/tshirt1.jpeg") {
+            tshirt1.src= "Images/tshirt1.jpeg";
+            tshirt2.src= "Images/tshirt2.jpeg";
+            tshirt3.src= "Images/tshirt3.jpeg";
+
+            }
+
+        } else {
+            if (tshirt1.src != "Images/tshirt1.jpeg") {
+            tshirt1.src="Images/tshirt1.jpeg";
+            tshirt2.src="Images/tshirt2.jpeg";
+            tshirt3.src="Images/tshirt3.jpeg";
+
+            }
+        }
+    
+
+    displayOption (chosenOption);
+
+    }
+
+    function displayOption (option) {
+
+    switch (option)
+    {
+        case "white":
+        document.getElementById("order").innerHTML = document.getElementById("product1").innerHTML;
+        break; 
+        case "pink": 
+        document.getElementById("order").innerHTML = document.getElementById ("product2").innerHTML;
+        break;
+        case "red":
+         document.getElementById("order").innerHTML= document.getElementById("product3").innerHTML;
+        break;
+        default:
+        document.getElementById("order").innerHTML= "";
+        document.getElementById("description").innerHTML="";
+
+    }
+
+}
+
+function resetOrder () {
+            document.getElementById ("tshirt1").src= "Images/tshirt1.jpeg";
+            document.getElementById ("tshirt2").src= "Images/tshirt2.jpeg";
+            document.getElementById ("tshirt3").src= "Images/tshirt3.jpeg";
+            displayOption (null)
+
+}
+
+
+</script>
+<footer style="background-color: #333; color: white; text-align: center; padding: 20px 0; position: relative; bottom: 0; width: 100%;">
+    <p>© 2024 Education for Sustainability. All rights reserved.</p>
+    <p>link to <a href="pageEditor_ST1.html" target="_blank" style="color: #f8f9fa; text-decoration: underline;">Link to Student 1 Page Editor!</a></p>
+   
+</footer>
+
+
+</body></html>
